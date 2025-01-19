@@ -14,26 +14,21 @@
             position: relative;
             width: 100%;
             height: 100vh;
-            overflow: hidden;
+            overflow-y: auto;
         }
         .menu-cover, .menu-content {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
+            height: auto;
             background-size: cover;
             background-position: center;
             transition: transform 1s ease-in-out;
         }
         .menu-cover {
-            background-image: url('menu\ card\ front.jpg');
-   
+            background-image: url('cover.jpg');
             animation: pop-out 2s infinite ease-in-out;
         }
         .menu-content {
-            background-image: url('menu\ card\ back.jpg');
-
+            background-image: url('menu.jpg');
             transform: translateX(100%);
         }
         @keyframes pop-out {
@@ -41,7 +36,7 @@
                 transform: translateX(0);
             }
             50% {
-                transform: translateX(-5%);
+                transform: translateX(-10%);
             }
         }
         .instruction {
@@ -68,12 +63,8 @@
 </head>
 <body>
     <div class="menu-container">
-        <div class="menu-cover" id="menuCover">
-            <!-- <img src="menu card front.jpg" alt=""  height="100%"> -->
-        </div>
-        <div class="menu-content" id="menuContent">
-            <!-- <img src="menu card back.jpg" alt=""  height="100%"> -->
-        </div>
+        <div class="menu-cover" id="menuCover"></div>
+        <div class="menu-content" id="menuContent"></div>
         <div class="instruction" id="instruction">Slide left to open menu</div>
     </div>
 
