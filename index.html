@@ -87,20 +87,27 @@
     </div>
 
     <script>
-        document.querySelector('.menu-container').addEventListener('click', function (e) {
-            e.preventDefault();
-            document.getElementById('menuCover').style.transform = 'translateX(-100%)';
-            document.getElementById('menuContent').style.transform = 'translateX(0)';
-            
-            // Make the menuContent visible immediately
-            document.getElementById('menuContent').style.display = 'block';
-            
-            // Hiding the cover and instruction after the animation
-            setTimeout(function () {
-                document.getElementById('menuCover').style.display = 'none';
-                document.getElementById('instruction').style.display = 'none';
-            }, 1000); // Timeout matches the transition duration
-        });
+    document.querySelector('.menu-container').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+        document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) {
+        document.documentElement.msRequestFullscreen();
+    }
+
+    document.getElementById('menuCover').style.transform = 'translateX(-100%)';
+    document.getElementById('menuContent').style.transform = 'translateX(0)';
+    document.getElementById('menuContent').style.display = 'block';
+    
+    setTimeout(function () {
+        document.getElementById('menuCover').style.display = 'none';
+        document.getElementById('instruction').style.display = 'none';
+    }, 1000);
+});
+
     </script>
     
     
