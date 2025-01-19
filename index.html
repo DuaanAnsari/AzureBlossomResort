@@ -32,7 +32,7 @@
     background-repeat: no-repeat;
     background-position: center;
     width: 100%; /* or a specific width, e.g., '300px' */
-    height: 100vh; /* or a specific height, e.g., '500px' */
+    height: 100%; /* or a specific height, e.g., '500px' */
     animation: pop-out 2s infinite ease-in-out;
 }
 
@@ -42,7 +42,7 @@
     background-repeat: no-repeat;
     background-position: center;
     width: 100%; /* or a specific width, e.g., '300px' */
-    height: 100vh; /* or a specific height, e.g., '500px' */
+    height: 100%; /* or a specific height, e.g., '500px' */
             transform: translateX(100%);
         }
         @keyframes pop-out {
@@ -87,12 +87,22 @@
     </div>
 
     <script>
-        document.querySelector('.menu-container').addEventListener('touchstart', function (e) {
+        document.querySelector('.menu-container').addEventListener('click', function (e) {
             e.preventDefault();
             document.getElementById('menuCover').style.transform = 'translateX(-100%)';
             document.getElementById('menuContent').style.transform = 'translateX(0)';
-            document.getElementById('instruction').style.display = 'none';
+            
+            // Make the menuContent visible immediately
+            document.getElementById('menuContent').style.display = 'block';
+            
+            // Hiding the cover and instruction after the animation
+            setTimeout(function () {
+                document.getElementById('menuCover').style.display = 'none';
+                document.getElementById('instruction').style.display = 'none';
+            }, 1000); // Timeout matches the transition duration
         });
     </script>
+    
+    
 </body>
 </html>
