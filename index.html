@@ -74,11 +74,11 @@
         <div class="menu-content" id="menuContent">
            
         </div>
-        <div class="instruction" id="instruction">Slide left to open menu</div>
+        <div class="instruction" id="instruction">Touch to open menu</div>
     </div>
 
     <script>
-        document.querySelector('.menu-container').addEventListener('click', function (e) {
+        document.querySelector('.menu-container').addEventListener('touchstart', function (e) {
             e.preventDefault();
             document.getElementById('menuCover').style.transform = 'translateX(-100%)';
             document.getElementById('menuContent').style.transform = 'translateX(0)';
