@@ -35,7 +35,7 @@ a{
 h1{
     text-align: center;
     margin-top: 40px;
-    color: Blue;
+    color: #488ca6;
     font-weight: bold;
 }
 nav {
@@ -130,10 +130,38 @@ video {
   align-items: center;
   justify-content: center;
 }
+.sticky-button {
+  position: fixed;
+  bottom: 20px;  /* Distance from the bottom of the screen */
+  right: 20px;   /* Distance from the right side of the screen */
+  padding: 15px 30px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.sticky-button:hover {
+  background-color: #0056b3;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
 
   </style>
 </head>
 <body>
+  <button class="sticky-button" onclick="redirect()">Click Me</button>
+
   <div>
     <div style="text-align: center; margin-top: 50px;">
       <img src="LOGO ILLUS-01.png" alt="" height="100px" width="100px">
@@ -290,6 +318,16 @@ video {
   </nav>
 </div>
   <script>
+    function redirect() {
+  // Add fade-out class to trigger the animation
+  document.querySelector('.sticky-button').classList.add('fade-out');
+
+  // Wait for the fade-out animation to complete (1 second), then redirect
+  setTimeout(function() {
+    window.location.href = "menu.html";  // Replace with the target URL
+  }, 1000);  // 1000ms (1 second) is the duration of the fade-out animation
+}
+
     function toggleDescription(descId) {
       var description = document.getElementById(descId);
       var arrow = description.previousElementSibling;
