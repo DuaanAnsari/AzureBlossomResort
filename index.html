@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Card with Toggle Descriptions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+body { 
+  background-color: #ededed; 
+  background-image: url('figma.png');
+  background-size: cover; /* Make the image cover the entire body */
+  background-position: top center; /* Make sure the top of the image is visible */
+  background-attachment: fixed; /* Keep the background fixed during scrolling */
+  height: 100vh; /* Set the body height to 100% of the viewport height */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  width: 100%; /* Ensure full width */
+}
+
+/* Optional: If you want to adjust the background image for mobile screens */
+@media (max-width: 768px) {
+  body {
+    background-size: cover; /* Keep the background image responsive */
+    background-position: top center; /* Keep the top of the image visible */
+  }
+}
+
+
+h1{
+    text-align: center;
+    margin-top: 40px;
+    color: Blue;
+    font-weight: bold;
+}
+nav {
+  width: 300px;
+  background: #8ec1d0;
+  margin: 40px auto;
+  position: relative;
+  border-radius: 12px; /* Rounded edges */
+  overflow: hidden; /* Ensures the contents respect the rounded edges */
+}
+
+span {
+  padding: 12px;
+  background: #71a8bf;
+  color: white;
+  font-size: 1.2em;
+  font-variant: small-caps;
+  cursor: pointer;
+  display: block;
+  height: 50px;
+  position: relative;
+  line-height: 26px;
+  border-top-left-radius: 12px; /* Top-left rounded corner */
+  border-top-right-radius: 12px; /* Top-right rounded corner */
+}
+
+span i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.4s ease;
+}
+
+.slide {
+  clear: both;
+  width: 100%;
+  max-height: 0;  /* Initial height is 0 */
+  overflow: hidden;  /* Hides content */
+  text-align: center;
+  transition: max-height 0.4s ease-out;  /* Smooth transition for expanding */
+}
+
+label {
+  width: 300px;
+  height: 50px;
+}
+
+.slide li { 
+  padding: 12px;
+  position: relative;
+}
+
+.description {
+  display: none;
+  padding: 8px;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  margin-top: 8px;
+  font-size: 0.9em;
+}
+
+.arrow {
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg); /* Rotate to point up */
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+}
+
+input[type="checkbox"]:checked + label span i {
+  transform: translateY(-50%) rotate(180deg); /* Rotate to point up */
+}
+
+input[type="checkbox"]:checked + label + .slide {
+  max-height: 1000px;  /* Adjust to a large number to allow the content to expand fully */
+}
+video {
+  max-width: 100%;  /* Prevents video from overflowing */
+  height: auto;     /* Maintains aspect ratio */
+  display: block;   /* Removes any extra space below the video */
+  margin: 0 auto;   /* Centers the video if needed */
+}
+#top{
+  margin-top: 300px;
+}
+
+  </style>
+</head>
+<body>
+  <div id="top">
+  <h1>Azure Blossom Resort</h1>
+  <br>
+  
+    <video width="90%" height="auto" controls autoplay loop muted style="border-radius: 15px;">
+      <source src="Video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  
+  
+  <br>
+  <div class="text-center item-center">
+  <h3>
+    Menu
+  </h3>
+  <hr>
+</div>
+<div class="container">
+  <nav>
+    <input type="checkbox" id="touch1">
+    <label for="touch1">
+      <span>Title 1 <i class="bi bi-chevron-down"></i></span>
+    </label>
+    <ul class="slide">
+      <li>
+        <a href="#">Lorem Ipsum</a>
+        <i class="bi bi-chevron-right arrow" onclick="toggleDescription('desc1')"></i>
+        <div id="desc1" class="description">
+          This is a placeholder description for item 1.
+        </div>
+      </li>
+      <li>
+        <a href="#">Lorem Ipsum</a>
+        <i class="bi bi-chevron-right arrow" onclick="toggleDescription('desc2')"></i>
+        <div id="desc2" class="description">
+          This is a placeholder description for item 2.
+        </div>
+      </li>
+      <li>
+        <a href="#">Lorem Ipsum</a>
+        <i class="bi bi-chevron-right arrow" onclick="toggleDescription('desc3')"></i>
+        <div id="desc3" class="description">
+          This is a placeholder description for item 3.
+        </div>
+      </li>
+      <li>
+        <a href="#">Lorem Ipsum</a>
+        <i class="bi bi-chevron-right arrow" onclick="toggleDescription('desc4')"></i>
+        <div id="desc4" class="description">
+          This is a placeholder description for item 4.
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <nav>
+    <input type="checkbox" id="touch2">
+    <label for="touch2">
+      <span>Title 2 <i class="bi bi-chevron-down"></i></span>
+    </label>
+    <ul class="slide">
+      <li>
+        <a href="#">Lorem Ipsum</a>
+        <i class="bi bi-chevron-right arrow" onclick="toggleDescription('desc5')"></i>
+        <div id="desc5" class="description">
+          This is a placeholder description for item 1.
+        </div>
+      </li>
+      <li>
+        <a href="#">Lorem Ipsum</a>
+        <i class="bi bi-chevron-right arrow" onclick="toggleDescription('desc6')"></i>
+        <div id="desc6" class="description">
+          This is a placeholder description for item 2.
+        </div>
+      </li>
+      <li>
+        <a href="#">Lorem Ipsum</a>
+        <i class="bi bi-chevron-right arrow" onclick="toggleDescription('desc7')"></i>
+        <div id="desc7" class="description">
+          This is a placeholder description for item 3.
+        </div>
+      </li>
+      <li>
+        <a href="#">Lorem Ipsum</a>
+        <i class="bi bi-chevron-right arrow" onclick="toggleDescription('desc8')"></i>
+        <div id="desc8" class="description">
+          This is a placeholder description for item 4.
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <nav>
+    <input type="checkbox" id="touch3">
+    <label for="touch3">
+      <span>Title 3 <i class="bi bi-chevron-down"></i></span>
+    </label>
+    <ul class="slide">
+      <li>
+        <a href="#">Lorem Ipsum</a>
+        <i class="bi bi-chevron-right arrow" onclick="toggleDescription('desc9')"></i>
+        <div id="desc9" class="description">
+          This is a placeholder description for item 1.
+        </div>
+      </li>
+      <li>
+        <a href="#">Lorem Ipsum</a>
+        <i class="bi bi-chevron-right arrow" onclick="toggleDescription('desc10')"></i>
+        <div id="desc10" class="description">
+          This is a placeholder description for item 2.
+        </div>
+      </li>
+      <li>
+        <a href="#">Lorem Ipsum</a>
+        <i class="bi bi-chevron-right arrow" onclick="toggleDescription('desc11')"></i>
+        <div id="desc11" class="description">
+          This is a placeholder description for item 3.
+        </div>
+      </li>
+      <li>
+        <a href="#">Lorem Ipsum</a>
+        <i class="bi bi-chevron-right arrow" onclick="toggleDescription('desc12')"></i>
+        <div id="desc12" class="description">
+          This is a placeholder description for item 4.
+        </div>
+      </li>
+    </ul>
+  </nav>
+</div>
+  <script>
+    function toggleDescription(descId) {
+      var description = document.getElementById(descId);
+      var arrow = description.previousElementSibling;
+
+      // Toggle description visibility
+      if (description.style.display === "none" || description.style.display === "") {
+        description.style.display = "block";
+        arrow.classList.add('open');
+      } else {
+        description.style.display = "none";
+        arrow.classList.remove('open');
+      }
+    }
+  </script>
+</body>
+</html>
