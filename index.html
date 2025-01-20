@@ -135,11 +135,12 @@ video {
   position: fixed;
   bottom: 20px;  /* Distance from the bottom of the screen */
   right: 20px;   /* Distance from the right side of the screen */
-  padding: 15px 30px;
+  padding: 10px 20px;  /* Smaller padding */
   background-color: green;
-  font-size: 16px;
+  font-size: 14px;  /* Smaller font size */
+  color: white;  /* Set text color to white */
   border: none;
-  border-radius: 50px;
+  border-radius: 25px;  /* Slightly rounded corners */
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
@@ -148,9 +149,17 @@ video {
   z-index: 1000;
 }
 
-.sticky-button:hover {
-  background-color: green;
+.sticky-button a {
+  color: white;  /* Ensure the link has the same color as the button text */
+  text-decoration: none;  /* Remove underline */
+  display: block;  /* Make the link fill the button */
+  text-align: center;  /* Center the text inside the button */
 }
+
+.sticky-button:hover {
+  background-color: #006400;  /* Darker green when hovered */
+}
+
 
 .fade-out {
   opacity: 0;
@@ -173,6 +182,7 @@ video {
 </head>
 <body>
   <button class="sticky-button"><a href="menu.html">Open Menu Page</a></button>
+
 
   <div>
     <div id="logo-container" style="position: absolute; top: 50px; left: 50%; transform: translateX(-50%); transition: all 0.3s ease;">
@@ -330,8 +340,8 @@ video {
     </ul>
   </nav>
   <nav>
-    <input type="checkbox" id="touch2">
-    <label for="touch2">
+    <input type="checkbox" id="touch4">
+    <label for="touch4">
       <span>SIDE DISHES <i class="bi bi-chevron-down"></i></span>
     </label>
     <ul class="slide">
@@ -350,8 +360,8 @@ video {
     </ul>
   </nav>
   <nav>
-    <input type="checkbox" id="touch2">
-    <label for="touch2">
+    <input type="checkbox" id="touch5">
+    <label for="touch5">
       <span>SUGGESTIONS <i class="bi bi-chevron-down"></i></span>
     </label>
     <ul class="slide">
@@ -372,8 +382,8 @@ video {
     </ul>
   </nav>
   <nav>
-    <input type="checkbox" id="touch2">
-    <label for="touch2">
+    <input type="checkbox" id="touch6">
+    <label for="touch6">
       <span>DESERTS <i class="bi bi-chevron-down"></i></span>
     </label>
     <ul class="slide">
@@ -389,8 +399,8 @@ video {
     </ul>
   </nav>
   <nav>
-    <input type="checkbox" id="touch2">
-    <label for="touch2">
+    <input type="checkbox" id="touch7">
+    <label for="touch7">
       <span>DRINKS <i class="bi bi-chevron-down"></i></span>
     </label>
     <ul class="slide">
