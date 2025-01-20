@@ -146,6 +146,7 @@ video {
   transition: background-color 0.3s;
   opacity: 1;
   transition: opacity 1s ease;
+  z-index: 1000;
 }
 
 .sticky-button:hover {
@@ -320,20 +321,15 @@ video {
 </div>
   <script>
     function redirect() {
-  // Add fade-out class to trigger the animation
   document.querySelector('.sticky-button').classList.add('fade-out');
-
-  // Wait for the fade-out animation to complete (1 second), then redirect
   setTimeout(function() {
-    window.location.href = "menu.html";  // Replace with the target URL
-  }, 1000);  // 1000ms (1 second) is the duration of the fade-out animation
+    window.location.href = "menu.html";  
+  }, 1000);  
 }
 
     function toggleDescription(descId) {
       var description = document.getElementById(descId);
       var arrow = description.previousElementSibling;
-
-      // Toggle description visibility
       if (description.style.display === "none" || description.style.display === "") {
         description.style.display = "block";
         arrow.classList.add('open');
