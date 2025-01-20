@@ -157,17 +157,29 @@ video {
   opacity: 0;
   transition: opacity 1s ease;
 }
+#logo-container {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease;
+}
+
+#logo {
+  transition: all 0.3s ease;
+}
 
 
   </style>
 </head>
 <body>
-  <button class="sticky-button" onclick="redirect()">Open Menu Page</button>
+  <button class="sticky-button"><a href="menu.html">Open Menu Page</a></button>
 
   <div>
-    <div style="text-align: center; margin-top: 50px;">
-      <img src="LOGO ILLUS-01.png" alt="" height="100px" width="100px">
+    <div id="logo-container" style="position: absolute;  left: 50%; transform: translateX(-50%); transition: all 0.3s ease;">
+      <img id="logo" src="LOGO ILLUS-01.png" alt="" height="100px" width="100px">
     </div>
+    
     
   <h1>Azure Blossom Resort</h1>
 <br>
@@ -405,12 +417,24 @@ video {
   </nav>
 </div>
   <script>
-    function redirect() {
-  document.querySelector('.sticky-button').classList.add('fade-out');
-  setTimeout(function() {
-    window.location.href = "menu.html";  
-  }, 0);  
-}
+   window.onscroll = function() {
+  var logoContainer = document.getElementById("logo-container");
+  var logo = document.getElementById("logo");
+  
+  var scrollPosition = window.scrollY;
+
+  // Change position and size based on scroll
+  if (scrollPosition > 50) {
+    logoContainer.style.left = "20px"; // Move logo to the left
+    logo.style.height = "50px"; // Make logo smaller
+    logo.style.width = "50px"; // Make logo smaller
+  } else {
+    logoContainer.style.left = "50%"; // Reset to center
+    logo.style.height = "100px"; // Reset to original size
+    logo.style.width = "100px"; // Reset to original size
+  }
+};
+
 
     function toggleDescription(descId) {
       var description = document.getElementById(descId);
